@@ -10,16 +10,15 @@ from utils import load_data
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import confusion_matrix
 
-from tensorflow.keras.models import Sequential, Model
-from tensorflow.keras.layers import Input, Conv1D, MaxPooling1D
-from tensorflow.keras.layers import Dense, Flatten, Embedding
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Input, Conv1D
+from tensorflow.keras.layers import Dense, Embedding
 from tensorflow.keras.layers import GlobalMaxPooling1D, Dropout
 
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.utils import plot_model
 from tensorflow.keras.callbacks import EarlyStopping
-from tensorflow.keras.optimizers import Adam
 
 VOCAB_SIZE = 20000
 MAX_SEQ_LEN = 256
