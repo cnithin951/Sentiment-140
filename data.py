@@ -1,22 +1,11 @@
 import numpy as np
-import pandas as pd
 import nltk
 import matplotlib.pyplot as plt
 from tqdm import tqdm
 
-from utils import convert_label, clean_text
+from utils import load_data
 
-train_dir = 'data\\train.csv'
-columns = ['Polarity', 'ID', 'Date', 'Query', 'User', 'Texts']
-
-df = pd.read_csv(train_dir, encoding='latin-1', names=columns, header=None)
-df.drop(['ID', 'Date', 'Query', 'User'], axis=1, inplace=True)
-
-sentiment_raw = df['Polarity']
-sentiment = sentiment_raw.apply(lambda x: convert_label(x))
-
-texts_raw = df['Texts']
-texts = texts_raw.apply(lambda x: clean_text(x))
+texts, sentiment = load_data()
 
 len_tweets = [len(s.split()) for s in texts]
 len_tweets.sort()
